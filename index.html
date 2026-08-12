@@ -19,6 +19,7 @@
         <li><a href="#historia">Historia</a></li>
         <li><a href="#djs">DJs</a></li>
         <li><a href="#videos">Videos</a></li>
+        <li><a href="#mix">Mix</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
@@ -130,6 +131,58 @@
             <span class="boton-reproducir">Ver en YouTube</span>
           </a>
 
+        </div>
+      </div>
+    </section>
+
+    <section id="mix" class="seccion seccion-oscura">
+      <div class="contenedor">
+        <h2 class="titulo-seccion">Nuestros Mix</h2>
+        <p class="texto-mix">Elige un mix y reprodúcelo aquí mismo. Cada DJ tiene sus propias mezclas.</p>
+        <div class="mix-contenedor">
+          <div class="mix-reproductor">
+            <div class="mix-video" id="reproductor-mix"></div>
+            <h3 class="mix-titulo-actual" id="mix-titulo-actual">Selecciona un mix para reproducir</h3>
+            <a class="mix-ver-youtube" id="mix-ver-youtube" href="https://youtu.be/17wiRX9lQMM" target="_blank" rel="noopener">No se puede reproducir? Ver en YouTube</a>
+          </div>
+          <ul class="mix-lista">
+            <li>
+              <button type="button" class="mix-boton" data-video="17wiRX9lQMM" data-titulo="Mix Cumbias Rancheras Picaditas y bailables 2026 (VOL. 63)">
+                <strong>DJ VICMAN</strong>
+                <span>Mix Cumbias Rancheras Picaditas y bailables 2026 (VOL. 63)</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="mix-boton" data-video="Z4LpbIgTBf4" data-titulo="MIX RANCHERAS picaditas DJ COKY">
+                <strong>DJ COKY</strong>
+                <span>MIX RANCHERAS picaditas DJ COKY</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="mix-boton" data-video="CNydFngXrOo" data-titulo="FIESTOKA MIX # 5 PARTE 2 Cumbia - Reggaeton - Ranchera - Retro y mas">
+                <strong>DJ MACKENCY</strong>
+                <span>FIESTOKA MIX # 5 PARTE 2 Cumbia - Reggaeton - Ranchera - Retro y mas</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="mix-boton" data-video="pmA57VTRKic" data-titulo="Mix Cumbias Rancheras Enganchadas VOL.02 FULL EDICION | JOS3 ITM &amp; DJ VICMAN CHILE">
+                <strong>DJ JOS3 IN THE MIX</strong>
+                <span>Mix Cumbias Rancheras Enganchadas VOL.02 FULL EDICION | JOS3 ITM &amp; DJ VICMAN CHILE</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="mix-boton" data-video="dPeTjRG1jI4" data-titulo="MIX RANCHERAS AGOSTO 2026 | DJ NEXUS">
+                <strong>DJ NEXUS</strong>
+                <span>MIX RANCHERAS AGOSTO 2026 | DJ NEXUS</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="mix-boton" data-video="Oy4dPPPiZSI" data-titulo="Mega Tropical Ranchero Volume 29 Previa fiestas patrias">
+                <strong>DJ EDUMIXER</strong>
+                <span>Mega Tropical Ranchero Volume 29 Previa fiestas patrias</span>
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -274,6 +327,39 @@
   <footer class="pie">
     <p>© 2026 DJs Rancheros Chile. Todos los derechos reservados.</p>
   </footer>
+
+  <script>
+    var mixVideoActual = "17wiRX9lQMM";
+    var reproductor = null;
+
+    function onYouTubeIframeAPIReady() {
+      reproductor = new YT.Player("reproductor-mix", {
+        videoId: mixVideoActual,
+        playerVars: { playsinline: 1 }
+      });
+    }
+
+    function reproducirMix(videoId, titulo) {
+      mixVideoActual = videoId;
+      document.getElementById("mix-titulo-actual").textContent = titulo;
+      document.getElementById("mix-ver-youtube").setAttribute("href", "https://youtu.be/" + videoId);
+      if (reproductor) {
+        reproductor.loadVideoById(videoId);
+      }
+    }
+
+    var botones = document.querySelectorAll(".mix-boton");
+    for (var i = 0; i < botones.length; i++) {
+      botones[i].addEventListener("click", function () {
+        reproducirMix(this.getAttribute("data-video"), this.getAttribute("data-titulo"));
+      });
+    }
+
+    var etiquetaScript = document.createElement("script");
+    etiquetaScript.src = "https://www.youtube.com/iframe_api";
+    var primerScript = document.getElementsByTagName("script")[0];
+    primerScript.parentNode.insertBefore(etiquetaScript, primerScript);
+  </script>
 
 </body>
 </html>
