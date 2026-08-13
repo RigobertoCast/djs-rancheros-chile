@@ -138,46 +138,72 @@
     <section id="mix" class="seccion seccion-oscura">
       <div class="contenedor">
         <h2 class="titulo-seccion">Nuestros Mix</h2>
-        <p class="texto-mix">Elige un mix y reprodúcelo aquí mismo. Cada DJ tiene sus propias mezclas.</p>
+        <p class="texto-mix">Elige un mix y reprodúcelo aquí mismo. Cuando uno termina, el siguiente suena automáticamente.</p>
         <div class="mix-contenedor">
           <div class="mix-reproductor">
-            <div class="mix-video" id="reproductor-mix"></div>
-            <h3 class="mix-titulo-actual" id="mix-titulo-actual">Selecciona un mix para reproducir</h3>
-            <a class="mix-ver-youtube" id="mix-ver-youtube" href="https://youtu.be/17wiRX9lQMM" target="_blank" rel="noopener">No se puede reproducir? Ver en YouTube</a>
+            <div class="mix-reproductor-mp3">
+              <div class="mix-caratula">
+                <img id="mix-caratula-img" src="https://img.youtube.com/vi/17wiRX9lQMM/hqdefault.jpg" alt="Carátula del mix actual">
+              </div>
+              <div class="mix-info">
+                <span class="mix-dj-actual" id="mix-dj-actual">DJ VICMAN</span>
+                <h3 class="mix-titulo-actual" id="mix-titulo-actual">Mix Cumbias Rancheras Picaditas y bailables 2026 (VOL. 63)</h3>
+                <div class="mix-progreso">
+                  <span id="mix-tiempo-actual">0:00</span>
+                  <input type="range" id="mix-barra" class="mix-barra" min="0" max="100" value="0" step="1" aria-label="Barra de progreso del mix">
+                  <span id="mix-tiempo-total">0:00</span>
+                </div>
+                <div class="mix-controles">
+                  <button type="button" class="mix-control" id="mix-anterior" aria-label="Mix anterior">
+                    <svg viewBox="0 0 24 24"><path d="M19 4 9 12l10 8V4zM5 5h2v14H5z"/></svg>
+                  </button>
+                  <button type="button" class="mix-control mix-control-principal" id="mix-play-pausa" aria-label="Reproducir o pausar">
+                    <svg id="mix-icono-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg id="mix-icono-pausa" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+                  </button>
+                  <button type="button" class="mix-control" id="mix-siguiente" aria-label="Mix siguiente">
+                    <svg viewBox="0 0 24 24"><path d="M5 4l10 8-10 8V4zM17 5h2v14h-2z"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div id="mix-youtube"></div>
+            <p class="mix-mensaje-autoplay" id="mix-mensaje-autoplay">Presiona cualquier parte de la página para comenzar la música.</p>
+            <a class="mix-ver-youtube" id="mix-ver-youtube" href="https://youtu.be/17wiRX9lQMM" target="_blank" rel="noopener">Escuchar en YouTube</a>
           </div>
           <ul class="mix-lista">
             <li>
-              <button type="button" class="mix-boton" data-video="17wiRX9lQMM" data-titulo="Mix Cumbias Rancheras Picaditas y bailables 2026 (VOL. 63)">
+              <button type="button" class="mix-boton" data-video="17wiRX9lQMM" data-titulo="Mix Cumbias Rancheras Picaditas y bailables 2026 (VOL. 63)" data-dj="DJ VICMAN">
                 <strong>DJ VICMAN</strong>
                 <span>Mix Cumbias Rancheras Picaditas y bailables 2026 (VOL. 63)</span>
               </button>
             </li>
             <li>
-              <button type="button" class="mix-boton" data-video="Z4LpbIgTBf4" data-titulo="MIX RANCHERAS picaditas DJ COKY">
+              <button type="button" class="mix-boton" data-video="Z4LpbIgTBf4" data-titulo="MIX RANCHERAS picaditas DJ COKY" data-dj="DJ COKY">
                 <strong>DJ COKY</strong>
                 <span>MIX RANCHERAS picaditas DJ COKY</span>
               </button>
             </li>
             <li>
-              <button type="button" class="mix-boton" data-video="rHQD0OGfQLM" data-titulo="Mix Vacilon Cumbiero vol 5 lo nuevo y lo clasico 2026">
+              <button type="button" class="mix-boton" data-video="rHQD0OGfQLM" data-titulo="Mix Vacilon Cumbiero vol 5 lo nuevo y lo clasico 2026" data-dj="DJ MACKENCY">
                 <strong>DJ MACKENCY</strong>
                 <span>Mix Vacilon Cumbiero vol 5 lo nuevo y lo clasico 2026</span>
               </button>
             </li>
             <li>
-              <button type="button" class="mix-boton" data-video="pmA57VTRKic" data-titulo="Mix Cumbias Rancheras Enganchadas VOL.02 FULL EDICION | JOS3 ITM &amp; DJ VICMAN CHILE">
+              <button type="button" class="mix-boton" data-video="pmA57VTRKic" data-titulo="Mix Cumbias Rancheras Enganchadas VOL.02 FULL EDICION | JOS3 ITM &amp; DJ VICMAN CHILE" data-dj="DJ JOS3 IN THE MIX">
                 <strong>DJ JOS3 IN THE MIX</strong>
                 <span>Mix Cumbias Rancheras Enganchadas VOL.02 FULL EDICION | JOS3 ITM &amp; DJ VICMAN CHILE</span>
               </button>
             </li>
             <li>
-              <button type="button" class="mix-boton" data-video="dPeTjRG1jI4" data-titulo="MIX RANCHERAS AGOSTO 2026 | DJ NEXUS">
+              <button type="button" class="mix-boton" data-video="dPeTjRG1jI4" data-titulo="MIX RANCHERAS AGOSTO 2026 | DJ NEXUS" data-dj="DJ NEXUS">
                 <strong>DJ NEXUS</strong>
                 <span>MIX RANCHERAS AGOSTO 2026 | DJ NEXUS</span>
               </button>
             </li>
             <li>
-              <button type="button" class="mix-boton" data-video="Oy4dPPPiZSI" data-titulo="Mega Tropical Ranchero Volume 29 Previa fiestas patrias">
+              <button type="button" class="mix-boton" data-video="Oy4dPPPiZSI" data-titulo="Mega Tropical Ranchero Volume 29 Previa fiestas patrias" data-dj="DJ EDUMIXER">
                 <strong>DJ EDUMIXER</strong>
                 <span>Mega Tropical Ranchero Volume 29 Previa fiestas patrias</span>
               </button>
@@ -329,31 +355,171 @@
   </footer>
 
   <script>
-    var mixVideoActual = "17wiRX9lQMM";
+    var mixCanciones = [];
+    var mixIndiceActual = 0;
     var reproductor = null;
+    var mezclaIniciada = false;
+    var temporizadorAutoplay = null;
+    var intervaloProgreso = null;
+    var barraEnUso = false;
 
     function onYouTubeIframeAPIReady() {
-      reproductor = new YT.Player("reproductor-mix", {
-        videoId: mixVideoActual,
-        playerVars: { playsinline: 1 }
+      reproductor = new YT.Player("mix-youtube", {
+        videoId: mixCanciones[0].video,
+        playerVars: { playsinline: 1 },
+        events: {
+          onReady: onReproductorListo,
+          onStateChange: onEstadoCambio
+        }
       });
     }
 
-    function reproducirMix(videoId, titulo) {
-      mixVideoActual = videoId;
-      document.getElementById("mix-titulo-actual").textContent = titulo;
-      document.getElementById("mix-ver-youtube").setAttribute("href", "https://youtu.be/" + videoId);
+    function onReproductorListo() {
+      intentarAutoplay();
+    }
+
+    function onEstadoCambio(evento) {
+      var estado = evento.data;
+      if (estado === YT.PlayerState.PLAYING || estado === YT.PlayerState.BUFFERING) {
+        document.getElementById("mix-play-pausa").classList.add("reproduciendo");
+        iniciarIntervalo();
+      } else {
+        document.getElementById("mix-play-pausa").classList.remove("reproduciendo");
+        detenerIntervalo();
+      }
+      if (estado === YT.PlayerState.ENDED) {
+        reproducirSiguiente();
+      }
+    }
+
+    function intentarAutoplay() {
+      reproductor.playVideo();
+      clearTimeout(temporizadorAutoplay);
+      temporizadorAutoplay = setTimeout(function () {
+        if (!mezclaIniciada && reproductor.getPlayerState() !== YT.PlayerState.PLAYING) {
+          document.getElementById("mix-mensaje-autoplay").classList.add("visible");
+        }
+      }, 2500);
+    }
+
+    function cargarMix(indice) {
+      if (indice < 0) {
+        indice = mixCanciones.length - 1;
+      }
+      if (indice >= mixCanciones.length) {
+        indice = 0;
+      }
+      mixIndiceActual = indice;
+      var cancion = mixCanciones[indice];
+      document.getElementById("mix-dj-actual").textContent = cancion.dj;
+      document.getElementById("mix-titulo-actual").textContent = cancion.titulo;
+      document.getElementById("mix-caratula-img").src = "https://img.youtube.com/vi/" + cancion.video + "/hqdefault.jpg";
+      document.getElementById("mix-ver-youtube").setAttribute("href", "https://youtu.be/" + cancion.video);
+      marcarActivo();
       if (reproductor) {
-        reproductor.loadVideoById(videoId);
+        reproductor.loadVideoById(cancion.video);
+      }
+    }
+
+    function reproducirAnterior() {
+      cargarMix(mixIndiceActual - 1);
+    }
+
+    function reproducirSiguiente() {
+      cargarMix(mixIndiceActual + 1);
+    }
+
+    function alternarPlayPausa() {
+      if (!reproductor) return;
+      if (reproductor.getPlayerState() === YT.PlayerState.PLAYING) {
+        reproductor.pauseVideo();
+      } else {
+        reproductor.playVideo();
+      }
+    }
+
+    function marcarActivo() {
+      var botones = document.querySelectorAll(".mix-boton");
+      var videoActual = mixCanciones[mixIndiceActual].video;
+      for (var i = 0; i < botones.length; i++) {
+        if (botones[i].getAttribute("data-video") === videoActual) {
+          botones[i].classList.add("activo");
+        } else {
+          botones[i].classList.remove("activo");
+        }
+      }
+    }
+
+    function formatoTiempo(segundos) {
+      segundos = Math.floor(segundos);
+      var minutos = Math.floor(segundos / 60);
+      var resto = segundos % 60;
+      return minutos + ":" + (resto < 10 ? "0" : "") + resto;
+    }
+
+    function actualizarProgreso() {
+      if (barraEnUso) return;
+      var duracion = reproductor.getDuration();
+      var actual = reproductor.getCurrentTime();
+      var barra = document.getElementById("mix-barra");
+      if (duracion > 0) {
+        barra.max = duracion;
+        barra.value = actual;
+        document.getElementById("mix-tiempo-actual").textContent = formatoTiempo(actual);
+        document.getElementById("mix-tiempo-total").textContent = formatoTiempo(duracion);
+      }
+    }
+
+    function iniciarIntervalo() {
+      detenerIntervalo();
+      intervaloProgreso = setInterval(actualizarProgreso, 500);
+    }
+
+    function detenerIntervalo() {
+      if (intervaloProgreso) {
+        clearInterval(intervaloProgreso);
+        intervaloProgreso = null;
       }
     }
 
     var botones = document.querySelectorAll(".mix-boton");
     for (var i = 0; i < botones.length; i++) {
-      botones[i].addEventListener("click", function () {
-        reproducirMix(this.getAttribute("data-video"), this.getAttribute("data-titulo"));
-      });
+      (function (indice) {
+        var boton = botones[indice];
+        mixCanciones.push({
+          video: boton.getAttribute("data-video"),
+          titulo: boton.getAttribute("data-titulo"),
+          dj: boton.getAttribute("data-dj")
+        });
+        boton.addEventListener("click", function () {
+          cargarMix(indice);
+        });
+      })(i);
     }
+
+    cargarMix(0);
+
+    document.getElementById("mix-play-pausa").addEventListener("click", alternarPlayPausa);
+    document.getElementById("mix-anterior").addEventListener("click", reproducirAnterior);
+    document.getElementById("mix-siguiente").addEventListener("click", reproducirSiguiente);
+
+    var barraProgreso = document.getElementById("mix-barra");
+    barraProgreso.addEventListener("input", function () {
+      barraEnUso = true;
+      document.getElementById("mix-tiempo-actual").textContent = formatoTiempo(barraProgreso.value);
+    });
+    barraProgreso.addEventListener("change", function () {
+      reproductor.seekTo(parseFloat(barraProgreso.value), true);
+      barraEnUso = false;
+    });
+
+    document.addEventListener("click", function () {
+      if (!mezclaIniciada && reproductor) {
+        mezclaIniciada = true;
+        reproductor.playVideo();
+        document.getElementById("mix-mensaje-autoplay").classList.remove("visible");
+      }
+    });
 
     var etiquetaScript = document.createElement("script");
     etiquetaScript.src = "https://www.youtube.com/iframe_api";

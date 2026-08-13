@@ -320,29 +320,144 @@ h1, h2, h3 {
   padding: 16px;
 }
 
-.mix-video {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  border-radius: 8px;
+#mix-youtube {
+  position: fixed;
+  bottom: 0;
+  right: -320px;
+  width: 200px;
+  height: 113px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mix-reproductor-mp3 {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.mix-caratula {
+  width: 190px;
+  height: 190px;
+  flex-shrink: 0;
+  border-radius: 10px;
   overflow: hidden;
   background-color: #000000;
 }
 
-.mix-video iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
+.mix-caratula img {
   width: 100%;
   height: 100%;
-  border: none;
+  object-fit: cover;
+  display: block;
+}
+
+.mix-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.mix-dj-actual {
+  display: block;
+  color: #ff5a4a;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
 }
 
 .mix-titulo-actual {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
-  margin: 16px 0 8px;
+  margin: 0 0 16px;
   color: #ffffff;
+}
+
+.mix-progreso {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: #b9c0dd;
+  font-size: 0.85rem;
+}
+
+.mix-barra {
+  flex: 1;
+  accent-color: #e23b2e;
+  cursor: pointer;
+}
+
+.mix-controles {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.mix-control {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #26306b;
+  background-color: #0d1530;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+.mix-control svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.mix-control:hover {
+  transform: translateY(-2px);
+  border-color: #e23b2e;
+}
+
+.mix-control-principal {
+  width: 60px;
+  height: 60px;
+  background-color: #e23b2e;
+  border-color: #e23b2e;
+}
+
+.mix-control-principal:hover {
+  background-color: #c1271b;
+}
+
+.mix-control-principal svg {
+  width: 24px;
+  height: 24px;
+}
+
+#mix-icono-pausa {
+  display: none;
+}
+
+.mix-control-principal.reproduciendo #mix-icono-play {
+  display: none;
+}
+
+.mix-control-principal.reproduciendo #mix-icono-pausa {
+  display: block;
+}
+
+.mix-mensaje-autoplay {
+  display: none;
+  margin: 14px 0 0;
+  text-align: center;
+  color: #ffd9d4;
+  font-size: 0.95rem;
+}
+
+.mix-mensaje-autoplay.visible {
+  display: block;
 }
 
 .mix-ver-youtube {
@@ -382,6 +497,11 @@ h1, h2, h3 {
 .mix-boton:hover {
   transform: translateY(-2px);
   border-color: #e23b2e;
+}
+
+.mix-boton.activo {
+  border-color: #e23b2e;
+  background-color: #1c2858;
 }
 
 .mix-boton strong {
@@ -511,5 +631,19 @@ h1, h2, h3 {
 
   .seccion {
     padding: 60px 20px;
+  }
+
+  .mix-reproductor-mp3 {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .mix-caratula {
+    width: 150px;
+    height: 150px;
+  }
+
+  .mix-controles {
+    justify-content: center;
   }
 }
