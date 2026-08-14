@@ -352,6 +352,7 @@
 
   <footer class="pie">
     <p>© 2026 DJs Rancheros Chile. Todos los derechos reservados.</p>
+    <p class="contador-visitas">Visitas a la página: <span id="contador-visitas">0</span></p>
   </footer>
 
   <script>
@@ -520,6 +521,18 @@
         document.getElementById("mix-mensaje-autoplay").classList.remove("visible");
       }
     });
+
+    fetch("https://countapi.mileshilliard.com/api/v1/hit/djsrancheroschile_cl_visitas")
+      .then(function (respuesta) {
+        return respuesta.json();
+      })
+      .then(function (datos) {
+        var contador = document.getElementById("contador-visitas");
+        if (contador && datos.value !== undefined) {
+          contador.textContent = parseInt(datos.value, 10);
+        }
+      })
+      .catch(function () {});
 
     var etiquetaScript = document.createElement("script");
     etiquetaScript.src = "https://www.youtube.com/iframe_api";

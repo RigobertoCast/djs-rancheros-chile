@@ -614,6 +614,17 @@ h1, h2, h3 {
   font-size: 0.9rem;
 }
 
+.contador-visitas {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #c7cde6;
+}
+
+.contador-visitas span {
+  font-weight: 600;
+  color: #ffffff;
+}
+
 /* Teléfonos y pantallas pequeñas */
 @media (max-width: 640px) {
   .navegacion {
