@@ -438,7 +438,7 @@
 
     function onYouTubeIframeAPIReady() {
       reproductor = new YT.Player("mix-youtube", {
-        videoId: mixCanciones[0].video,
+        videoId: mixCanciones[mixIndiceActual].video,
         playerVars: { playsinline: 1 },
         events: {
           onReady: onReproductorListo,
