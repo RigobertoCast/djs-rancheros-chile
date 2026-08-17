@@ -570,7 +570,7 @@
       })(i);
     }
 
-    cargarMix(0);
+    cargarMix(Math.floor(Math.random() * mixCanciones.length));
 
     document.getElementById("mix-play-pausa").addEventListener("click", alternarPlayPausa);
     document.getElementById("mix-anterior").addEventListener("click", reproducirAnterior);
